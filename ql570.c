@@ -279,7 +279,7 @@ int main(int argc, const char ** argv) {
 
   int cutoff = 180;
 	
-  if (argv[1][0] == 'ping') {
+  if (argv[1][0] == "ping") {
     ql570_ping();
     return EXIT_SUCCESS;
   }
