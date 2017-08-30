@@ -272,7 +272,8 @@ void usage(const char* cmd) {
 
 void ql570_ping() {
 	printf("%s\n", "Pinging QL-700 printer");
-  fprintf(fp, "%c%c%c", ESC, 'i', 'S');
+  	// fprintf(fp, "%c%c%c", ESC, 'i', 'S');
+	fprintf(fp, "%c", 0x00);
 }
 
 int main(int argc, const char ** argv) {
