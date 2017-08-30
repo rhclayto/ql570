@@ -2,7 +2,9 @@
 
 This program prints 1083 by 336 pixel monochrome PNG files on the Brother QL-570 thermal sticker printer by writing to the Linux device file (e.g. /dev/usb/lp0).
 
-Also tested with model QL-700 and DK 29mm x 90.3mm non-continuous sample labels
+Also tested with model QL-700 and DK 29mm x 90.3mm non-continuous sample labels.
+
+Modified to allow pinging the QL-700 printer to keep it awake.
 
 # Prerequisites #
 
@@ -29,6 +31,8 @@ Usage: ./ql570 printer n|w|7 pngfile [cutoff]
   [cutoff] is the optional color/greyscale to monochrome conversion cutoff (default: 180).
   Example: ./ql570 /dev/usb/lp0 n image.png
   Hint: If the printer's status LED blinks red, then your media type is probably wrong.
+  To 'ping' the QL-700 printer, do ./ql570 /dev/usb/lp0 p. This will send a Status information request to the printer.
+  If done at least once an hour, it will keep the printer from going to sleep on Linux.
 ```
 
 If you try to print a greyscale or monochrome PNG, then it will be converted to monochrome before printing. The image is converted by turning all pixels that have a value of less than 180 out of 255 in either color channel to black, and the rest to white. The cutoff can be adjusted to something other than 180 by specifying it on the command line.
