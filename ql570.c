@@ -269,14 +269,24 @@ void usage(const char* cmd) {
 		exit(EXIT_FAILURE);
 }
 
+void ql570_ping() {
+  /* Status information request */
+  fprintf(fp, "%c%c%c", ESC, 'I', 'S');
+}
+
 int main(int argc, const char ** argv) {
 
   int cutoff = 180;
+	
+  if (argv[1] == 'ping') {
+    ql570_ping();
+    return EXIT_SUCCESS;
+  }
 
-	if ((argc < 4) || (argc > 5)) {
+  if ((argc < 4) || (argc > 5)) {
     usage(argv[0]);
     return -1;
-	}
+  }
 
   if(argc == 5) {
     cutoff = atoi(argv[4]);
