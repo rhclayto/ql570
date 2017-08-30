@@ -16,6 +16,7 @@
 #include <stdint.h>
 #include <stdarg.h>
 #include <errno.h>
+#include <string.h>
 
 #define PNG_DEBUG 3
 #include <png.h>
@@ -278,7 +279,7 @@ int main(int argc, const char ** argv) {
 
   int cutoff = 180;
 	
-  if (argv[1] == 'ping') {
+  if (argv[1][0] == 'ping') {
     ql570_ping();
     return EXIT_SUCCESS;
   }
