@@ -272,7 +272,8 @@ void usage(const char* cmd) {
 
 void ql570_ping() {
   /* Status information request */
-  fprintf(fp, "%c%c%c", ESC, 'I', 'S');
+  // fprintf(fp, "%c%c%c", ESC, 'I', 'S');
+  fprintf(fp, "%c%c", ESC, '@');
 }
 
 int main(int argc, const char ** argv) {
