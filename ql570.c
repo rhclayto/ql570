@@ -94,8 +94,8 @@ void ql570_print(pngdata_t * img, unsigned int paper_width)
 	}
 	
 	/* Set cut type */
-  //	fprintf(fp, "%c%c%c%c", ESC, 'i', 'K', 8);
-  fprintf(fp, "%c%c%c", ESC, 'i', 'K');
+  	fprintf(fp, "%c%c%c%c", ESC, 'i', 'K', 6);
+  // fprintf(fp, "%c%c%c", ESC, 'i', 'K');
 
 	/* Enable cutter */
   //	fprintf(fp, "%c%c%c%c", ESC, 'i', 'A', 1);
@@ -272,7 +272,7 @@ void usage(const char* cmd) {
 
 void ql570_ping() {
 	printf("%s\n", "Pinging QL-700 printer");
-  fprintf(fp, "%c%c%c", ESC, 'I', 'S');
+  fprintf(fp, "%c%c%c", ESC, 'i', 'S');
 }
 
 int main(int argc, const char ** argv) {
