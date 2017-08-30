@@ -263,7 +263,7 @@ pngdata_t * loadpng(const char * path, int cutoff) {
 void usage(const char* cmd) {
 		fprintf(stderr, "Usage: %s printer n|w|7 pngfile [cutoff]\n", cmd);
     fprintf(stderr, "  Where 'n' is narrow paper (29 mm) and 'w' is wide paper (62 mm) and '7'\n");
-	fprintf(stderr, "  is the 1.1\" x 3.5\" sample labels that ship with the QL-700.\n");
+		fprintf(stderr, "  is the 1.1\" x 3.5\" sample labels that ship with the QL-700.\n");
     fprintf(stderr, "  [cutoff] is the optional color/greyscale to monochrome conversion cutoff (default: 180).\n");
     fprintf(stderr, "  Example: %s /dev/usb/lp0 n image.png\n", cmd);
     fprintf(stderr, "  Hint: If the printer's status LED blinks red, then your media type is probably wrong.\n");
@@ -271,16 +271,16 @@ void usage(const char* cmd) {
 }
 
 void ql570_ping() {
-  /* Status information request */
-  // fprintf(fp, "%c%c%c", ESC, 'I', 'S');
-  fprintf(fp, "%c%c", ESC, '@');
+	printf("%s\n", "Pinging QL-700 printer");
+  fprintf(fp, "%c%c%c", ESC, 'I', 'S');
 }
 
 int main(int argc, const char ** argv) {
 
   int cutoff = 180;
 	
-  if (argv[1][0] == 'p') {
+  if (argv[2][0] == 'p') {
+		ql570_open(argv[1]);
     ql570_ping();
     return EXIT_SUCCESS;
   }
